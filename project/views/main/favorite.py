@@ -2,7 +2,7 @@ from flask import request
 from flask_restx import Namespace, Resource
 
 from project.container import favorite_service, user_service
-from project.setup.api.models import movie
+from project.setup.api.models import movie, favorite
 from project.setup.api.parsers import page_parser
 
 api = Namespace('favorites')
@@ -22,7 +22,7 @@ class FavoriteView(Resource):
 
 @api.route('/movies/<movie_id>/')
 class FavoritesView(Resource):
-    @api.marshal_with(movie, as_list=True, code=200, description='OK')
+    @api.marshal_with(favorite, as_list=True, code=200, description='OK')
     def post(self, movie_id):
         token = request.headers["Authorization"].split("Bearer ")[-1]
         user = user_service.get_user_by_token(token)

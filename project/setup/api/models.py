@@ -34,9 +34,9 @@ user: Model = api.model('Пользователь', {
     'favourite_genre': fields.Integer(required=True, example=1)
 })
 
-# favorite: Model = api.model('Избранное', {
-#     'user_id': fields.Integer(required=True, example=1),
-#     'movie_id': fields.Integer(required=True, example=1),
-#     'movies': fields.Nested(movie)
-# })
+favorite: Model = api.model('Избранное', {
+    'user_id': fields.Integer(required=True, example=1),
+    'movie_id': fields.Integer(required=True, example=1),
+    'movies': fields.Nested(movie)
+})
 
