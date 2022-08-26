@@ -29,7 +29,6 @@ class Movie(models.Base):
 
     genre = relationship("Genre")
     director = relationship("Director")
-    favorites_movies = relationship("FavoritesMovie")
 
 
 class User(models.Base):
@@ -39,9 +38,8 @@ class User(models.Base):
     password = Column(String(300), nullable=False)
     name = Column(String(100))
     surname = Column(String(100))
-    favorite_genre = Column(Integer, ForeignKey(f"{Genre.__tablename__}.id"))
-    favorite_genre_object = relationship("Genre")
-    favorite_movies = relationship("Movie", secondary="favorite_movies")
+    favourite_genre = Column(Integer, ForeignKey(f"{Genre.__tablename__}.id"))
+    favourite_genre_object = relationship("Genre")
 
 
 class FavoritesMovie(models.BaseManyToMany):
@@ -50,6 +48,5 @@ class FavoritesMovie(models.BaseManyToMany):
     user_id = Column(Integer, ForeignKey("users.id"), primary_key=True, autoincrement=False)
     movie_id = Column(Integer, ForeignKey("movies.id"), primary_key=True, autoincrement=False)
 
+    users = relationship("User")
     movies = relationship("Movie")
-
-

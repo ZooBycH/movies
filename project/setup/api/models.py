@@ -31,12 +31,12 @@ user: Model = api.model('Пользователь', {
     'password': fields.String(required=True, max_length=300, example='Комедия'),
     'name': fields.String(required=True, max_length=300, example='Комедия'),
     'surname': fields.String(required=True, max_length=300, example='Комедия'),
-    'favorite_genre': fields.Integer(required=True, example=1)
+    'favourite_genre': fields.Integer(required=True, example=1)
 })
 
-favorite: Model = api.model('Избранное', {
-    'user_id': fields.Integer(required=True, example=1),
-    'movie_id': fields.Integer(required=True, example=1),
-    'movies': fields.Nested(movie)
-})
+# favorite: Model = api.model('Избранное', {
+#     'user_id': fields.Integer(required=True, example=1),
+#     'movie_id': fields.Integer(required=True, example=1),
+#     'movies': fields.Nested(movie)
+# })
 
