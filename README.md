@@ -43,7 +43,8 @@ flask run
 ```
 ## Запуск демонстрационного Frontend стенда
 1. Скачать образ командой ```docker pull painassasin/node_cource_project:latest```
-2. Запустить контейнер на 80 порту docker run -p 80:80 painassasin/node_cource_project
+2. Запустить контейнер на 80 порту ```docker run -p 80:80 painassasin/node_cource_project```
+- Образ сконфигурирован таким образом, что он будет ожидать backend на 5000 локальном порту
 ## Запуск тестов
 ```shell
 pytest .
